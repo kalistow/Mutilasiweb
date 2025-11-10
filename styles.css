@@ -1,0 +1,595 @@
+/* Reset dan Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* MODIFIED: Mengganti font menjadi Poppins */
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  /* MODIFIED: Menggunakan warna latar modern yang bersih */
+  background-color: #f8f9fa;
+  position: relative;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* MODIFIED: Menghapus background grid retro */
+body::before {
+  display: none;
+}
+
+/* Container */
+.container {
+  margin: 0 auto;
+  padding: 20px;
+  /* MODIFIED: Menambahkan max-width untuk layout yang lebih baik di layar lebar */
+  max-width: 1400px;
+}
+
+/* Navbar Styles */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  /* MODIFIED: Membuat navbar flat, modern, dengan shadow lembut */
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  /* MODIFIED: Padding internal untuk navbar */
+  padding: 12px 24px;
+  margin-bottom: 32px;
+}
+
+/* MODIFIED: Menyembunyikan browser bar retro */
+.browser-bar {
+  display: none;
+}
+
+.browser-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.control {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+.address-bar {
+  flex: 1;
+  margin: 0 16px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+.address-bar span {
+  color: #666;
+  font-size: 14px;
+}
+
+.window-controls {
+  display: flex;
+  gap: 4px;
+}
+
+.window-btn {
+  width: 24px;
+  height: 24px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.nav-menu {
+  /* MODIFIED: Menghapus style retro */
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.nav-menu ul {
+  display: flex;
+  justify-content: center;
+  /* MODIFIED: Menambah jarak antar item */
+  gap: 24px;
+  list-style: none;
+}
+
+.nav-menu li {
+  cursor: pointer;
+}
+
+.nav-menu li a {
+  display: flex;
+  /* MODIFIED: Mengubah arah flex untuk layout modern */
+  flex-direction: row;
+  align-items: center;
+  gap: 8px; /* MODIFIED: Jarak antara ikon dan teks */
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #555;
+  /* MODIFIED: Menambahkan transisi halus */
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.nav-menu li.active a {
+  /* MODIFIED: Style 'active' yang modern */
+  background-color: #fffbeb;
+  color: #d97706;
+  border: none;
+  box-shadow: none;
+}
+
+.nav-menu li:not(.active) a:hover {
+  /* MODIFIED: Efek hover modern */
+  background-color: #f3f4f6;
+  color: #111;
+}
+
+.nav-menu li a span {
+  /* MODIFIED: Reset margin & style font */
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 0;
+}
+
+/* Content Styles */
+.content {
+  /* MODIFIED: Menghapus margin-top, sudah di-handle oleh margin-bottom navbar */
+  margin-top: 0;
+}
+
+.profile-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+/* Profile Card Styles */
+.profile-card {
+  width: 100%;
+  height: 350px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card-inner.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  /* MODIFIED: Style kartu modern */
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  background-color: #ffffff; /* MODIFIED: Latar belakang putih standar */
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+/* MODIFIED: Menghapus warna latar belakang retro */
+.teal,
+.yellow {
+  background-color: #ffffff;
+}
+
+.pink-bg {
+  background-color: #ff6b6b;
+}
+
+/* MODIFIED: Menyembunyikan header kartu retro */
+.card-header {
+  display: none;
+}
+
+.card-content {
+  /* MODIFIED: Sesuaikan tinggi karena header disembunyikan */
+  height: 100%;
+  padding: 24px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* MODIFIED: Pusatkan konten kartu */
+  justify-content: center;
+}
+
+.profile-image {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  /* MODIFIED: Border dan shadow modern */
+  border: 3px solid #f3f4f6;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* MODIFIED: Typography modern */
+.card-content h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 4px;
+}
+.card-content p {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.flip-hint {
+  /* MODIFIED: Mendorong hint ke bagian bawah kartu */
+  margin-top: auto;
+  padding-top: 16px;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.skill-list {
+  width: 100%;
+  list-style: none;
+  margin-top: 16px;
+  /* MODIFIED: Pastikan teks rata kiri */
+  text-align: left;
+}
+
+.skill-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  color: #374151;
+}
+
+.bullet {
+  width: 10px;
+  height: 10px;
+  /* MODIFIED: Style bullet modern */
+  background-color: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 50%;
+}
+
+/* Main Content Styles */
+.main-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.window {
+  /* MODIFIED: Style window/kartu utama yang modern */
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  background-color: white;
+}
+
+.window-content {
+  /* MODIFIED: Padding lebih besar */
+  padding: 32px;
+}
+
+.text-center {
+  text-align: center;
+  margin-bottom: 32px; /* MODIFIED */
+}
+/* MODIFIED: Typography */
+.text-center h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 8px;
+}
+.text-center p {
+  font-size: 1.1rem;
+  color: #4b5563;
+}
+
+.content-section {
+  margin-bottom: 32px; /* MODIFIED */
+}
+
+.section-title {
+  display: inline-block;
+  font-size: 1.5rem; /* MODIFIED */
+  font-weight: 600;
+  margin-bottom: 16px; /* MODIFIED */
+  padding: 4px 12px; /* MODIFIED */
+  border: none; /* MODIFIED */
+  border-radius: 8px; /* MODIFIED */
+}
+
+/* MODIFIED: Palet warna modern untuk section titles */
+.yellow-bg {
+  background-color: #fffbeb;
+  color: #b45309;
+}
+
+.teal-bg {
+  background-color: #f0fdfa;
+  color: #0f766e;
+}
+
+.pink-bg {
+  background-color: #fff1f2;
+  color: #be185d;
+}
+
+/* MODIFIED: Filter Project Styles */
+.project-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 32px;
+  justify-content: center;
+}
+
+.filter-btn {
+  background-color: #f3f4f6;
+  color: #4b5563;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background-color: #e5e7eb;
+  color: #1f2937;
+}
+
+.filter-btn.active {
+  background-color: #d97706; /* Warna aktif yang lebih menarik */
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.3);
+}
+
+.projects-grid {
+  display: grid;
+  /* MODIFIED: Grid responsif */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  /* MODIFIED: Style kartu proyek modern */
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  border-radius: 12px; /* Sudut lebih membulat */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04); /* Shadow lebih lembut */
+  overflow: hidden;
+  /* MODIFIED: Transisi untuk hover dan efek lainnya */
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* MODIFIED: Efek hover modern untuk kartu proyek */
+.project-card:hover {
+  transform: translateY(-8px); /* Sedikit naik */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Shadow lebih kuat */
+}
+
+.project-image {
+  height: 200px; /* Tinggi gambar yang lebih konsisten */
+  width: 100%;
+  border-bottom: 1px solid #f3f4f6; /* Garis bawah pemisah */
+  object-fit: cover;
+  transition: transform 0.3s ease; /* Animasi zoom pada hover */
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05); /* Zoom in pada gambar saat hover */
+}
+
+.project-detail {
+  padding: 16px;
+  flex-grow: 1; /* Memastikan detail mengisi sisa ruang */
+  display: flex;
+  flex-direction: column;
+}
+
+.project-detail h3 {
+  font-size: 1.2rem; /* Ukuran font lebih besar */
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.project-detail p {
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin-bottom: 12px;
+  flex-grow: 1; /* Memastikan deskripsi mengisi ruang */
+}
+
+/* MODIFIED: Tech Stack Tags */
+.tech-stack {
+  margin-top: auto; /* Mendorong ke bawah */
+  margin-bottom: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-stack span {
+  background-color: #eef2ff; /* Latar belakang tag yang lembut */
+  color: #4338ca; /* Warna teks tag */
+  padding: 4px 10px;
+  border-radius: 16px; /* Sudut tag yang membulat */
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* MODIFIED: View Project Button */
+.view-project-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px; /* Jarak dari detail lain */
+  background-color: #1f2937;
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  align-self: flex-start; /* Rata kiri */
+}
+
+.view-project-btn:hover {
+  background-color: #374151;
+  transform: translateY(-2px); /* Efek sedikit naik saat hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.contact-info {
+  /* MODIFIED: Style kartu kontak modern */
+  border: 1px solid #e5e7eb;
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* MODIFIED */
+  margin-bottom: 12px; /* MODIFIED */
+  font-size: 1rem;
+  color: #374151;
+}
+
+.contact-bullet {
+  width: 16px;
+  height: 16px;
+  border: none; /* MODIFIED */
+  border-radius: 50%; /* MODIFIED */
+}
+
+/* MODIFIED: Style modern untuk bullet kontak */
+.contact-bullet.teal-bg {
+  background-color: #f0fdfa;
+  border: 2px solid #99f6e4;
+}
+.contact-bullet.yellow-bg {
+  background-color: #fffbeb;
+  border: 2px solid #fef08a;
+}
+
+/* Responsive Styles */
+
+/* MODIFIED: Mengatur layout untuk layar tablet dan desktop kecil */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .profile-card-container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .profile-card {
+    width: 48%; /* Kartu profil bersebelahan */
+    height: 330px; /* Sedikit lebih pendek */
+  }
+  .main-content {
+    width: 100%;
+    order: -1; /* Konten utama pindah ke atas */
+  }
+  .projects-grid {
+    grid-template-columns: 1fr 1fr; /* Selalu 2 kolom */
+  }
+}
+
+/* MODIFIED: Layout desktop besar */
+@media (min-width: 1024px) {
+  .profile-card-container {
+    flex-wrap: nowrap; /* Kembali ke 3 kolom sejajar */
+  }
+  .profile-card {
+    width: 280px; /* Lebar tetap untuk kartu samping */
+  }
+  .main-content {
+    flex: 1; /* Konten utama mengisi sisa ruang */
+  }
+}
+
+/* MODIFIED: Style mobile (bawaan) */
+@media (max-width: 767px) {
+  .profile-card-container {
+    flex-direction: column;
+  }
+
+  .profile-card,
+  .main-content {
+    width: 100%;
+  }
+
+  /* MODIFIED: Pastikan 1 kolom di mobile */
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar {
+    /* MODIFIED: Buat navbar lebih ramah mobile */
+    padding: 8px;
+  }
+  .nav-menu ul {
+    gap: 8px; /* Perkecil jarak */
+    justify-content: space-around; /* Sebar merata */
+  }
+  .nav-menu li a {
+    flex-direction: column; /* Kembalikan ke ikon di atas teks */
+    padding: 8px;
+    gap: 4px;
+  }
+  .nav-menu li a span {
+    font-size: 10px; /* Perkecil font */
+  }
+  .window-content {
+    padding: 24px; /* Padding mobile */
+  }
+  .text-center h1 {
+    font-size: 2rem;
+  }
+  .project-filters {
+    justify-content: flex-start; /* Filter rata kiri di mobile */
+  }
+  .filter-btn {
+    flex-grow: 1; /* Filter memenuhi lebar */
+    text-align: center;
+  }
+}
